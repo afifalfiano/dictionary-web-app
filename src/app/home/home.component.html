@@ -1,5 +1,5 @@
   <app-header (searchText)="search($event)" />
-  @defer(on timer(2s)) {
+  @defer(on timer(500ms)) {
     <app-body [dictionary]="dictionary()" [error]="error()" [keyword]="keyword()" />
   } @placeholder {
     <app-skeleton />
