@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr": "node dist/dictionary-web-app/server/server.mjs"
+    "serve:ssr": "node dist/dictionary-web-app/server/server.mjs",
+    "dev:ssr": "npm run build && npm run serve:ssr"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,7 @@
     "@tailwindcss/postcss": "^4.0.8",
     "express": "^4.18.2",
     "material-icons": "^1.13.14",
+    "ngx-skeleton-loader": "^10.0.0",
     "postcss": "^8.5.3",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.0.8",

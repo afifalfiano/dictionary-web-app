@@ -1,18 +1,18 @@
-import { Component, computed, effect, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { DictionaryService } from '../shared/services/dictionary.service';
 import { LayoutComponent } from "../layout/layout.component";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { Dictionary } from '../models/dictionary.model';
 import { BodyComponent } from './body/body.component';
-import { BehaviorSubject, debounce, debounceTime, delay, distinctUntilChanged, mergeMap, Observable, Subject, switchMap, takeUntil, throttleTime } from 'rxjs';
+import { Observable, takeUntil } from 'rxjs';
 import { Error } from '../models/error.mode';
 import { SkeletonComponent } from "../shared/skeleton/skeleton.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LayoutComponent, HeaderComponent, FooterComponent, BodyComponent, SkeletonComponent],
+  imports: [HeaderComponent, FooterComponent, BodyComponent, SkeletonComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

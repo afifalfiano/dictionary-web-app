@@ -1,12 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component} from '@angular/core';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-skeleton',
   standalone: true,
-  imports: [],
+  imports: [NgxSkeletonLoaderModule],
   templateUrl: './skeleton.component.html',
-  styleUrl: './skeleton.component.scss'
+  styleUrl: './skeleton.component.scss',
 })
 export class SkeletonComponent {
-  @Input() text: string = 'loading';
 }
