@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:dictionary-web-app": "node dist/dictionary-web-app/server/server.mjs"
+    "serve:ssr": "node dist/dictionary-web-app/server/server.mjs"
   },
   "private": true,
   "dependencies": {
