@@ -1,11 +1,12 @@
 import { Component, OnInit, output } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { debounceTime, distinctUntilChanged} from 'rxjs';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

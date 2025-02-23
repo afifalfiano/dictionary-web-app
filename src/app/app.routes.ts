@@ -12,6 +12,10 @@ export const routes: Routes = [
     loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
   },
   {
+    path: 'bookmark',
+    loadComponent: () => import('./bookmark/bookmark.component').then(m => m.BookmarkComponent)
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }

@@ -1,13 +1,11 @@
-<app-layout>
   <app-header (searchText)="search($event)" />
   @defer(on timer(2s)) {
     <app-body [dictionary]="dictionary()" [error]="error()" [keyword]="keyword()" />
   } @placeholder {
-    <p>placeholder...</p>
+    <app-skeleton [text]="'placeholder'" />
   } @loading {
-    <p>loading...</p>
+    <app-skeleton [text]="'loading'" />
   } @error {
     <p>error...</p>
   }
   <app-footer />
-</app-layout>

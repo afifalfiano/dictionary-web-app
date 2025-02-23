@@ -1,25 +1,19 @@
 @for (item of dictionary(); track $index) {
-  <div class="w-100 border border-primary p-3 mb-3">
-    <p>Keyword: {{item.word}}</p>
-    <p>Phonetic: {{item.phonetic}}</p>
-    <ng-container>
-      @if (item.sourceUrls.length > 0) {
-        <p>SourceUrl:</p>
-        @for (sourceUrl of item.sourceUrls; track $index) {
-          <span>{{sourceUrl}} <span *ngIf="$index === item.sourceUrls.length - 1">,</span></span>
-        }
-      }
-
-    </ng-container>
+  <div class="block w-full mb-3 p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{item.word}}</h5>
+    <p class="font-normal text-gray-700 dark:text-gray-400">
+      {{item.meanings[0].definitions[0].definition}}
+    </p>
   </div>
+  
 } @empty {
     <div class="alert alert-warning" role="alert">
-      @if (searchActive()) {
-        <p>Keyword: {{error()?.title}}</p>  
-        <p>Message: {{error()?.message}}</p>
-        <p>Solution: {{error()?.resolution}}</p>
+      @if (searchActive() && error()) {
+        <div class="block w-full mb-3 p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+          <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{keyword()}}: {{error()?.message?.replace('pal', '')}}</h5>
+        </div>
       } @else {
-        <p>No data found.</p>
+          <h5 class="mb-2 text-xl font-semibold text-gray-400 py-5 tracking-tight text-center">Please find something...</h5>
       }
     </div>
 }

@@ -1,1 +1,22 @@
-<input type="text" autofocus [formControl]="keyword" placeholder="Search">
+<div class="header">
+  <div class="flex gap-1">
+    <span class="material-icons-round">local_library</span>
+    <h1 class="">Dictionary</h1>
+  </div>
+  <div class="header__favorit">
+    <button class="header__button cursor-pointer" [routerLink]="['/bookmark']" routerLinkActive="router-link-active" >
+      <span class="material-icons-round">bookmark</span>
+    </button>
+  </div>
+</div>
+
+
+<div class="w-full py-5">   
+  <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only text-white">Search</label>
+  <div class="relative">
+      <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+        <span class="material-icons-round">search</span>
+      </div>
+      <input type="search" id="default-search" autofocus [formControl]="keyword" class="block w-full p-4 ps-10 text-sm text-gray-900 rounded-lg bg-slate-200 placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500" placeholder="Search..." required />
+  </div>
+</div>

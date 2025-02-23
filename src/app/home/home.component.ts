@@ -7,11 +7,12 @@ import { Dictionary } from '../models/dictionary.model';
 import { BodyComponent } from './body/body.component';
 import { BehaviorSubject, debounce, debounceTime, delay, distinctUntilChanged, mergeMap, Observable, Subject, switchMap, takeUntil, throttleTime } from 'rxjs';
 import { Error } from '../models/error.mode';
+import { SkeletonComponent } from "../shared/skeleton/skeleton.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LayoutComponent, HeaderComponent, FooterComponent, BodyComponent],
+  imports: [LayoutComponent, HeaderComponent, FooterComponent, BodyComponent, SkeletonComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
