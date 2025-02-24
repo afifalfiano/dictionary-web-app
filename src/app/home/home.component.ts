@@ -2,7 +2,7 @@ import { Component, computed, effect, inject, signal } from '@angular/core';
 import { DictionaryService } from '../shared/services/dictionary.service';
 import { LayoutComponent } from "../layout/layout.component";
 import { HeaderComponent } from "./header/header.component";
-import { FooterComponent } from "./footer/footer.component";
+import { FooterComponent } from "../shared/components/footer/footer.component";
 import { Dictionary } from '../models/dictionary.model';
 import { BodyComponent } from './body/body.component';
 import { Observable, takeUntil } from 'rxjs';

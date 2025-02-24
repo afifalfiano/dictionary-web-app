@@ -4,6 +4,7 @@
     <p class="font-normal text-gray-700 dark:text-gray-400">
       {{item.meanings[0].definitions[0].definition}}
     </p>
+    <span class="material-icons-round text-white mt-2 cursor-pointer" (click)="addFavorite(item)">favorite</span>
   </div>
   
 } @empty {

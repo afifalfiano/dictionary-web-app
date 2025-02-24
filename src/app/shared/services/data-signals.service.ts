@@ -8,7 +8,11 @@ export class DataSignalsService {
   constructor() { }
 
   add(payload: unknown) {
-    this.data.update(data => [...data, payload]);
+    this.data.update((data: unknown[]) => [...data, payload]);
+  }
+
+  remove(index: number) {
+    this.data.update(arr => arr.filter((_, i) => i !== index));
   }
 
   total() {
@@ -20,6 +24,6 @@ export class DataSignalsService {
   }
 
   reset(): void {
-    this.data.update([]);
+    this.data.set([]);
   }
 }
