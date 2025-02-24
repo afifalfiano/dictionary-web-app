@@ -4,16 +4,16 @@ import { NotFoundComponent } from './not-found/not-found.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dictionary',
+    redirectTo: '',
     pathMatch: 'full'
   },
   {
-    path: 'dictionary',
-    loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
+    path: '',
+    loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
   },
   {
     path: 'bookmark',
-    loadComponent: () => import('./bookmark/bookmark.component').then(m => m.BookmarkComponent)
+    loadComponent: () => import('./bookmark/bookmark.component').then(m => m.BookmarkComponent),
   },
   {
     path: '**',
