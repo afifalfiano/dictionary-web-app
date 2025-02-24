@@ -9,8 +9,25 @@ import bootstrap from './src/main.server';
 export function app(): express.Express {
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../browser');
+  
+  const args = process.argv.slice(2);
+  const configArg = args.find(arg => arg.startsWith("--configuration="));
+  let lang = 'en';
+  let browserDistFolder = resolve(serverDistFolder, '../browser');
+
+  if (configArg) {
+    const configValue = configArg.split("=")[1];
+    if (configValue === 'id') {
+      lang = 'id';
+    }
+    console.log("Configuration value:", configValue);
+    browserDistFolder = resolve(serverDistFolder, `../../browser/${lang}`); // config for support i18n
+  } else {
+    console.log("Configuration not provided");
+  }
+
   const indexHtml = join(serverDistFolder, 'index.server.html');
+  console.log(browserDistFolder, 'browserDistFolder');
 
   const commonEngine = new CommonEngine();
 

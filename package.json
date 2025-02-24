@@ -4,12 +4,20 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=en",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "serve:ssr:id": "node dist/dictionary-web-app/server/id/server.mjs --configuration=id",
+    "serve:ssr:en": "node dist/dictionary-web-app/server/en/server.mjs --configuration=en",
     "serve:ssr": "node dist/dictionary-web-app/server/server.mjs",
+    "dev:ssr:en": "npm run build:en && npm run serve:ssr:en",
+    "dev:ssr:id": "npm run build:id && npm run serve:ssr:id",
     "dev:ssr": "npm run build && npm run serve:ssr",
-    "i18n:extract": "ng xi18n"
+    "i18n:extract": "ng extract-i18n --format=json",
+    "start:en": "ng serve --configuration=en",
+    "start:id": "ng serve --configuration=id",
+    "build:en": "ng build --configuration=en",
+    "build:id": "ng build --configuration=id"
   },
   "private": true,
   "dependencies": {

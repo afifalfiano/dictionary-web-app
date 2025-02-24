@@ -13,6 +13,19 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "id": {
+            "translation": "src/locale/messages.id.json",
+            "baseHref": ""
+          },
+          "en": {
+            "translation": "src/locale/messages.en.json",
+            "baseHref": ""
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -21,10 +34,12 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "i18nMissingTranslation": "warning",
             "assets": [
               {
                 "glob": "**/*",
@@ -43,6 +58,40 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "id": {
+              "localize": ["id"],
+              "i18nMissingTranslation": "warning",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "en": {
+              "localize": ["en"],
+              "i18nMissingTranslation": "warning",
               "budgets": [
                 {
                   "type": "initial",
@@ -90,19 +139,31 @@
             },
             "development": {
               "buildTarget": "dictionary-web-app:build:development"
+            },
+            "id": {
+              "buildTarget": "dictionary-web-app:build:id"
+            },
+            "en": {
+              "buildTarget": "dictionary-web-app:build:en"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "dictionary-web-app:build",
+            "format": "json",
+            "outputPath": "src/locale"
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
